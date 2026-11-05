@@ -1,0 +1,116 @@
+/* ตั้งค่าพื้นฐานของเว็บไซต์ */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f5;
+    color: #333;
+}
+
+/* ส่วนหัวเว็บไซต์ */
+header {
+    background-color: #245b4a;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header h2 {
+    color: #e5c77b;
+    margin: 5px 0;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+/* เมนูเว็บไซต์ */
+nav {
+    background-color: #173f34;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e5c77b;
+}
+
+/* ส่วนเนื้อหา */
+section {
+    background-color: white;
+    padding: 25px;
+    margin: 25px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* หัวข้อ */
+section h2 {
+    color: #245b4a;
+    border-bottom: 2px solid #e5c77b;
+    padding-bottom: 10px;
+}
+
+/* กล่องกิจกรรมและข้อมูล */
+.card {
+    background-color: #f4f8f5;
+    padding: 18px;
+    margin: 15px 0;
+    border-left: 5px solid #245b4a;
+    border-radius: 8px;
+}
+
+.card h3 {
+    color: #245b4a;
+    margin-top: 0;
+}
+
+/* รายการทักษะ */
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ส่วนท้ายเว็บไซต์ */
+footer {
+    background-color: #173f34;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* ปรับเว็บไซต์ให้เหมาะกับโทรศัพท์ */
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    section {
+        margin: 15px;
+        padding: 18px;
+    }
+}
