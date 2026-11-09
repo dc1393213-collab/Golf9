@@ -5,23 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#173f34">
-
     <title>แฟ้มสะสมผลงาน | PORTFOLIO</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ส่วนหัวเว็บไซต์ -->
     <header>
         <h1>แฟ้มสะสมผลงาน</h1>
         <p>PORTFOLIO</p>
         <p>เส้นทางสู่การเป็นครูสังคมศึกษา</p>
     </header>
 
-
-    <!-- ประวัติส่วนตัว -->
     <section>
         <h2>ประวัติส่วนตัว</h2>
         <p>ชื่อ-นามสกุล: นายสิริเชษฐ์ ไกรสิทธิ์</p>
@@ -34,8 +29,6 @@
         <p>ระดับชั้น: มัธยมศึกษาปีที่ 6/3</p>
     </section>
 
-
-    <!-- ประวัติการศึกษา -->
     <section>
         <h2>ประวัติการศึกษา</h2>
         <p>กำลังศึกษาอยู่ระดับชั้นมัธยมศึกษาปีที่ 6/3</p>
@@ -43,11 +36,8 @@
         <p>แผนการศึกษาระดับมัธยมศึกษาตอนปลาย</p>
     </section>
 
-
-    <!-- เป้าหมายในอนาคต -->
     <section>
         <h2>เป้าหมายในอนาคต</h2>
-
         <p>
             มีความตั้งใจที่จะศึกษาต่อในคณะครุศาสตร์หรือคณะศึกษาศาสตร์
             สาขาวิชาสังคมศึกษา เพื่อพัฒนาความรู้และทักษะ
@@ -57,8 +47,6 @@
         </p>
     </section>
 
-
-    <!-- ผลงานและกิจกรรม -->
     <section>
         <h2>ผลงานและกิจกรรม</h2>
 
@@ -125,14 +113,10 @@
                 และการมีส่วนร่วมในกิจกรรมของโรงเรียน
             </p>
         </div>
-
     </section>
 
-
-    <!-- ทักษะและความสามารถ -->
     <section>
         <h2>ทักษะและความสามารถ</h2>
-
         <ul>
             <li>การทำงานเป็นทีม</li>
             <li>การสื่อสารและถ่ายทอดความรู้</li>
@@ -143,19 +127,14 @@
         </ul>
     </section>
 
-
-    <!-- คติประจำใจ -->
     <section>
         <h2>คติประจำใจ</h2>
-
         <p>
             "การเป็นครูที่ดี ไม่ใช่เพียงการสอนให้รู้
             แต่คือการสร้างคนให้เติบโตอย่างมีคุณภาพ"
         </p>
     </section>
 
-
-    <!-- ส่วนท้ายเว็บไซต์ -->
     <footer>
         <p>จัดทำโดย นายสิริเชษฐ์ ไกรสิทธิ์</p>
         <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6/3</p>
@@ -164,79 +143,66 @@
     </footer>
 
 
-    <!-- ปุ่มเพลงลอยด้านข้าง -->
-    <button
-        id="musicToggle"
-        class="music-floating-btn"
-        type="button"
-        aria-label="เปิดเครื่องเล่นเพลง"
-        aria-expanded="false">
-
-        <span>♫</span>
-
+    <!-- ปุ่มเพลงแนวยาวด้านข้าง -->
+    <button id="musicToggle" class="music-tab"
+            type="button" aria-label="เปิดเครื่องเล่นเพลง"
+            aria-expanded="false">
+        <span class="music-tab-icon">♫</span>
+        <span class="music-tab-text">MUSIC</span>
+        <span class="music-tab-arrow">‹</span>
     </button>
 
 
-    <!-- การ์ดเพลง Liquid Glass -->
-    <div id="musicCard" class="music-card">
+    <!-- หน้าต่างเพลง -->
+    <div id="musicOverlay" class="music-overlay">
 
-        <div class="music-header">
-            <span>NOW PLAYING</span>
+        <div class="music-card">
 
-            <button
-                id="musicClose"
-                type="button"
-                aria-label="ปิดเครื่องเล่นเพลง">
-                ×
-            </button>
-        </div>
+            <div class="music-header">
+                <div>
+                    <span class="music-label">PORTFOLIO PLAYER</span>
+                    <h3>Now Playing</h3>
+                </div>
 
-
-        <!-- ข้อมูลเพลง -->
-        <div class="music-info">
-
-            <div class="music-cover">
-                ♫
+                <button id="musicClose" class="close-btn"
+                        type="button" aria-label="ปิด">×</button>
             </div>
 
-            <div class="music-details">
-                <h3>My Favorite Song</h3>
-                <p>YouTube Music</p>
+            <div class="music-info">
+                <div class="music-cover">♫</div>
+
+                <div class="music-details">
+                    <h3>My Favorite Song</h3>
+                    <p>YouTube Music</p>
+                </div>
             </div>
 
+            <!-- เครื่องเล่นเพลง YouTube -->
+            <div class="youtube-container">
+                <iframe
+                    id="youtubeFrame"
+                    src="https://www.youtube.com/embed/XZSfXkhcHDA?playsinline=1&rel=0"
+                    title="YouTube Music Player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p class="music-hint">
+                กดปุ่มเล่นบนเครื่องเล่นเพื่อฟังเพลง
+            </p>
+
+            <a class="youtube-link"
+               href="https://youtu.be/XZSfXkhcHDA"
+               target="_blank"
+               rel="noopener noreferrer">
+                <span>▶</span> เปิดเพลงบน YouTube
+            </a>
+
         </div>
-
-
-        <!-- พื้นที่แสดง YouTube Player -->
-        <div class="music-player">
-
-            <div id="youtubePlayer"></div>
-
-        </div>
-
-
-        <!-- ปุ่มควบคุม -->
-        <div class="music-controls">
-
-            <button id="musicPlay" type="button">
-                ▶
-            </button>
-
-            <span id="musicStatus">
-                กำลังโหลดเครื่องเล่นเพลง...
-            </span>
-
-        </div>
-
-
-        <div class="music-footer">
-            PORTFOLIO MUSIC PLAYER
-        </div>
-
     </div>
 
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
