@@ -1,6 +1,6 @@
-/* =========================
-   ตั้งค่าพื้นฐานเว็บไซต์
-========================= */
+/* =================================
+   พื้นฐานเว็บไซต์
+================================= */
 
 * {
     box-sizing: border-box;
@@ -16,9 +16,9 @@ body {
 }
 
 
-/* =========================
+/* =================================
    ส่วนหัวเว็บไซต์
-========================= */
+================================= */
 
 header {
     background-color: #245b4a;
@@ -42,9 +42,9 @@ header p {
 }
 
 
-/* =========================
-   ส่วนเนื้อหา
-========================= */
+/* =================================
+   เนื้อหา
+================================= */
 
 section {
     background-color: white;
@@ -52,13 +52,10 @@ section {
     margin: 25px auto;
     max-width: 900px;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
 }
-
-
-/* =========================
-   หัวข้อ
-========================= */
 
 section h2 {
     color: #245b4a;
@@ -67,22 +64,26 @@ section h2 {
 }
 
 
-/* =========================
-   กล่องผลงานและกิจกรรม
-========================= */
+/* =================================
+   ผลงานและกิจกรรม
+================================= */
 
 .project {
     background-color: #f4f8f5;
     padding: 18px;
     margin: 15px 0;
+
     border-left: 5px solid #245b4a;
     border-radius: 8px;
+
     transition: 0.3s ease;
 }
 
 .project:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .project h3 {
@@ -91,9 +92,9 @@ section h2 {
 }
 
 
-/* =========================
-   รายการทักษะ
-========================= */
+/* =================================
+   ทักษะ
+================================= */
 
 ul {
     padding-left: 25px;
@@ -104,9 +105,9 @@ li {
 }
 
 
-/* =========================
-   ส่วนท้ายเว็บไซต์
-========================= */
+/* =================================
+   ส่วนท้าย
+================================= */
 
 footer {
     background-color: #173f34;
@@ -117,55 +118,54 @@ footer {
 }
 
 
-/* =====================================
-   FLOATING MUSIC BUTTON
-   ปุ่มเพลงลอยด้านข้าง
-===================================== */
+/* =================================
+   ปุ่มเพลงด้านข้าง
+================================= */
 
 .music-floating-btn {
     position: fixed;
+
     right: 22px;
     top: 45%;
+
     z-index: 9999;
 
     width: 58px;
     height: 58px;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255,255,255,0.35);
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.16);
-    color: white;
+    background: rgba(255,255,255,0.18);
 
-    font-size: 29px;
+    color: white;
+    font-size: 30px;
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.25);
 
     cursor: pointer;
+
     transition: 0.3s ease;
 }
 
 .music-floating-btn:hover {
     transform: scale(1.1);
 
-    background: rgba(36, 91, 74, 0.9);
-}
-
-.music-floating-btn span {
-    display: inline-block;
+    background: rgba(36,91,74,0.9);
 }
 
 
-/* =====================================
-   LIQUID GLASS MUSIC CARD
-   การ์ดเพลงแบบกระจกโปร่งใส
-===================================== */
+/* =================================
+   การ์ดเพลง Liquid Glass
+================================= */
 
 .music-card {
     position: fixed;
+
     right: 22px;
     top: 50%;
 
@@ -176,16 +176,16 @@ footer {
 
     border-radius: 25px;
 
-    background: rgba(25, 35, 31, 0.78);
+    background: rgba(25,35,31,0.82);
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255,255,255,0.25);
 
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.35),
-        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+        0 15px 50px rgba(0,0,0,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.15);
 
     color: white;
 
@@ -203,7 +203,7 @@ footer {
 }
 
 
-/* เมื่อเปิดการ์ดเพลง */
+/* เปิดการ์ดเพลง */
 
 .music-card.active {
     opacity: 1;
@@ -213,9 +213,9 @@ footer {
 }
 
 
-/* =========================
-   ส่วนหัวการ์ดเพลง
-========================= */
+/* =================================
+   หัวการ์ด
+================================= */
 
 .music-header {
     display: flex;
@@ -236,19 +236,16 @@ footer {
     font-size: 26px;
 
     cursor: pointer;
-
-    transition: 0.2s;
 }
 
 .music-header button:hover {
     color: #1ed760;
-    transform: scale(1.15);
 }
 
 
-/* =========================
+/* =================================
    ข้อมูลเพลง
-========================= */
+================================= */
 
 .music-info {
     display: flex;
@@ -271,7 +268,6 @@ footer {
     justify-content: center;
 
     font-size: 35px;
-    color: white;
 
     background: linear-gradient(
         135deg,
@@ -280,7 +276,8 @@ footer {
         #173f34
     );
 
-    box-shadow: 0 5px 20px rgba(30, 215, 96, 0.25);
+    box-shadow:
+        0 5px 20px rgba(30,215,96,0.25);
 }
 
 .music-details h3 {
@@ -296,29 +293,34 @@ footer {
 }
 
 
-/* =========================
-   เครื่องเล่น YouTube
-========================= */
+/* =================================
+   YouTube Player
+================================= */
 
 .music-player {
     width: 100%;
+
     overflow: hidden;
+
     border-radius: 12px;
+
     background: #111;
 }
 
 .music-player iframe {
     display: block;
+
     width: 100%;
     height: 200px;
+
     border: none;
     border-radius: 12px;
 }
 
 
-/* =========================
-   ปุ่มควบคุมเพลง
-========================= */
+/* =================================
+   ปุ่มเล่นเพลง
+================================= */
 
 .music-controls {
     display: flex;
@@ -334,6 +336,8 @@ footer {
 #musicPlay {
     width: 43px;
     height: 43px;
+
+    flex-shrink: 0;
 
     border: none;
     border-radius: 50%;
@@ -355,9 +359,9 @@ footer {
 }
 
 
-/* =========================
-   ข้อความท้ายการ์ดเพลง
-========================= */
+/* =================================
+   ท้ายการ์ดเพลง
+================================= */
 
 .music-footer {
     text-align: center;
@@ -365,7 +369,7 @@ footer {
     margin-top: 15px;
     padding-top: 12px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255,255,255,0.12);
 
     color: #9eafa5;
 
@@ -374,10 +378,9 @@ footer {
 }
 
 
-/* =====================================
-   RESPONSIVE
-   รองรับโทรศัพท์และแท็บเล็ต
-===================================== */
+/* =================================
+   Responsive
+================================= */
 
 @media screen and (max-width: 600px) {
 
@@ -392,12 +395,14 @@ footer {
 
     .music-floating-btn {
         right: 14px;
+
         width: 52px;
         height: 52px;
     }
 
     .music-card {
         right: 12px;
+
         width: 310px;
     }
 
