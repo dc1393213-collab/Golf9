@@ -126,6 +126,36 @@ footer {
 .music-tab-icon {
     font-size: 30px;
     font-weight: bold;
+}.profile-container {
+    width: min(300px, 85vw);
+    margin: 35px auto;
+    padding: 4px;
+    border-radius: 18px;
+    background: linear-gradient(
+        145deg,
+        #f7d99b,
+        #8c633c,
+        #d9ad6b,
+        #f7d99b
+    );
+    box-shadow: 0 0 25px rgba(255, 190, 100, 0.4);
+    animation: warmGlow 4s ease-in-out infinite alternate;
+}
+
+.profile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+@keyframes warmGlow {
+    from {
+        box-shadow: 0 0 12px rgba(255, 190, 100, 0.25);
+    }
+    to {
+        box-shadow: 0 0 35px rgba(255, 170, 80, 0.5);
+    }
 }
 
 .music-tab-text {
