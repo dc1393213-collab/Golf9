@@ -1,48 +1,49 @@
-// =====================================
+// ==========================================
 // PORTFOLIO JAVASCRIPT
-// =====================================
+// ==========================================
 
 
-// ทำงานเมื่อเว็บไซต์โหลดเสร็จ
+// แสดงปีปัจจุบัน
 document.addEventListener("DOMContentLoaded", function () {
 
-    // แสดงปีปัจจุบันเป็นปี พ.ศ.
     const year = document.getElementById("year");
 
     if (year) {
         year.textContent = new Date().getFullYear() + 543;
     }
 
-    // แสดงข้อความต้อนรับใน Console
-    console.log("ยินดีต้อนรับเข้าสู่เว็บไซต์ PORTFOLIO");
+    console.log("Portfolio Website Ready");
 
 });
 
 
-// =====================================
-// MUSIC PLAYER
-// เครื่องเล่นเพลง YouTube
-// =====================================
+// ==========================================
+// MUSIC PLAYER ELEMENTS
+// ==========================================
 
 const musicToggle = document.getElementById("musicToggle");
+
 const musicCard = document.getElementById("musicCard");
+
 const musicClose = document.getElementById("musicClose");
 
 const musicPlay = document.getElementById("musicPlay");
+
 const musicStatus = document.getElementById("musicStatus");
 
 
-// ตัวแปรควบคุมเพลง
+// ตัวแปรเครื่องเล่นเพลง
 let player = null;
-let isPlaying = false;
+
 let playerReady = false;
 
+let isPlaying = false;
 
-// =====================================
-// เปิดและปิดการ์ดเพลง
-// =====================================
 
+// ==========================================
 // เปิดการ์ดเพลง
+// ==========================================
+
 musicToggle.addEventListener("click", function () {
 
     musicCard.classList.toggle("active");
@@ -54,7 +55,10 @@ musicToggle.addEventListener("click", function () {
 });
 
 
+// ==========================================
 // ปิดการ์ดเพลง
+// ==========================================
+
 musicClose.addEventListener("click", function () {
 
     musicCard.classList.remove("active");
@@ -64,57 +68,75 @@ musicClose.addEventListener("click", function () {
 });
 
 
-// =====================================
-// โหลด YouTube IFrame API
-// =====================================
+// ==========================================
+// YOUTUBE API
+// ==========================================
 
-// กำหนดฟังก์ชันให้ YouTube เรียกใช้งาน
+// ฟังก์ชันที่ YouTube เรียกเมื่อโหลด API เสร็จ
 window.onYouTubeIframeAPIReady = function () {
 
     player = new YT.Player("youtubePlayer", {
 
-        height: "200",
         width: "100%",
+
+        height: "200",
 
         videoId: "XZSfXkhcHDA",
 
         playerVars: {
+
             autoplay: 0,
+
             controls: 1,
+
             rel: 0,
-            playsinline: 1
+
+            playsinline: 1,
+
+            enablejsapi: 1
+
         },
 
         events: {
 
+            // เครื่องเล่นพร้อมใช้งาน
             onReady: function () {
 
                 playerReady = true;
 
                 musicStatus.textContent = "พร้อมเล่นเพลง";
 
-                console.log("Music Player พร้อมใช้งาน");
+                console.log("YouTube Player Ready");
 
             },
 
+
+            // ตรวจสอบสถานะเพลง
             onStateChange: function (event) {
 
-                // กำลังเล่นเพลง
                 if (event.data === YT.PlayerState.PLAYING) {
 
                     isPlaying = true;
 
                     musicPlay.textContent = "Ⅱ";
 
-                    musicPlay.setAttribute("aria-label", "หยุดเพลง");
-
                     musicStatus.textContent = "กำลังเล่นเพลง";
 
                 }
 
-                // หยุดเพลงหรือพักเพลง
                 else if (
-                    event.data === YT.PlayerState.PAUSED ||
+                    event.data === YT.PlayerState.PAUSED
+                ) {
+
+                    isPlaying = false;
+
+                    musicPlay.textContent = "▶";
+
+                    musicStatus.textContent = "หยุดเล่นเพลง";
+
+                }
+
+                else if (
                     event.data === YT.PlayerState.ENDED
                 ) {
 
@@ -122,17 +144,35 @@ window.onYouTubeIframeAPIReady = function () {
 
                     musicPlay.textContent = "▶";
 
-                    musicPlay.setAttribute("aria-label", "เล่นเพลง");
+                    musicStatus.textContent = "เพลงจบแล้ว";
 
-                    musicStatus.textContent = "หยุดเล่นเพลง";
+                }
+
+                else if (
+                    event.data === YT.PlayerState.BUFFERING
+                ) {
+
+                    musicStatus.textContent = "กำลังโหลดเพลง...";
 
                 }
 
             },
 
-            onError: function () {
 
-                musicStatus.textContent = "ไม่สามารถเล่นเพลงได้";
+            // ตรวจสอบข้อผิดพลาดจาก YouTube
+            onError: function (event) {
+
+                isPlaying = false;
+
+                musicPlay.textContent = "▶";
+
+                musicStatus.textContent =
+                    "YouTube Error: " + event.data;
+
+                console.error(
+                    "YouTube Player Error:",
+                    event.data
+                );
 
             }
 
@@ -143,46 +183,61 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 
-// =====================================
-// โหลด API จาก YouTube
-// =====================================
+// ==========================================
+// โหลด YouTube API เพียงครั้งเดียว
+// ==========================================
 
 const youtubeScript = document.createElement("script");
 
-youtubeScript.src = "https://www.youtube.com/iframe_api";
+youtubeScript.src =
+    "https://www.youtube.com/iframe_api";
 
 youtubeScript.async = true;
 
 document.head.appendChild(youtubeScript);
 
 
-// =====================================
+// ==========================================
 // ปุ่มเล่นและหยุดเพลง
-// =====================================
+// ==========================================
 
 musicPlay.addEventListener("click", function () {
 
-    // ตรวจสอบว่า YouTube Player พร้อมหรือยัง
-    if (!player || !playerReady) {
+    // ตรวจสอบว่าเครื่องเล่นพร้อมหรือยัง
+    if (!playerReady || !player) {
 
-        musicStatus.textContent = "กำลังโหลดเครื่องเล่นเพลง...";
+        musicStatus.textContent =
+            "กำลังโหลดเครื่องเล่นเพลง...";
 
         return;
 
     }
 
-    // ถ้ากำลังเล่นเพลง ให้หยุด
+
+    // ถ้ากำลังเล่นอยู่ ให้หยุดเพลง
     if (isPlaying) {
 
         player.pauseVideo();
 
-    }
-
-    // ถ้าหยุดอยู่ ให้เล่นเพลง
-    else {
-
-        player.playVideo();
+        return;
 
     }
+
+
+    // เปิดเสียงและเพิ่มระดับเสียง
+    player.unMute();
+
+    player.setVolume(100);
+
+
+    // สั่งเล่นเพลง
+    player.playVideo();
+
+    musicStatus.textContent = "กำลังเปิดเพลง...";
 
 });
+
+
+// ==========================================
+// จบการทำงาน
+// ==========================================
